@@ -1,0 +1,39 @@
+commit 70ddab8af223bae61aefe8c7a3733e241f9e784c (HEAD -> georgy-new_feature, origin/georgy-new_feature)
+Author: georgy <georgy.puzakov@gmail.com>
+Date:   Tue Jun 14 16:16:15 2022 +0300
+
+    fix
+
+commit 9a56267c2592fa32a7d014cbd794ae4cbf77ca8a
+Author: georgy <georgy.puzakov@gmail.com>
+Date:   Tue Jun 14 16:07:18 2022 +0300
+
+    Revert "Revert "detite test""
+
+    This reverts commit d6a8a2b2ec6d00aa1b76a5ee5f8e4e1247cb2edd.
+
+commit d6a8a2b2ec6d00aa1b76a5ee5f8e4e1247cb2edd
+Author: georgy <georgy.puzakov@gmail.com>
+Date:   Tue Jun 14 16:03:48 2022 +0300
+
+    Revert "detite test"
+
+    This reverts commit 5057915e8ae62104ff04e1c41672440a30bc54c5.
+
+commit f80a79d51d4ff47c28da3bb765716e46ad27d87f
+Author: georgy <georgy.puzakov@gmail.com>
+Date:   Tue Jun 14 15:52:34 2022 +0300
+
+    make changes
+
+commit 5057915e8ae62104ff04e1c41672440a30bc54c5
+Author: georgy <georgy.puzakov@gmail.com>
+Date:   Tue Jun 14 14:53:36 2022 +0300
+
+    detite test
+
+commit 81859727bc2af605b4edf9a6d345ed6bf4649519
+Author: georgy <georgy.puzakov@gmail.com>
+Date:   Tue Jun 14 14:47:42 2022 +0300
+
+    add test
