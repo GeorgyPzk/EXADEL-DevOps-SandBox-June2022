@@ -21,6 +21,9 @@ jobs:
     
     - name: printLs
       run: ls -la
+      
+    - name: printLog
+      run: pwd 
         
     - name: printLog
       run: cat Task1/log.txt
