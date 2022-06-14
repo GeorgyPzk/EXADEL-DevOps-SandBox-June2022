@@ -26,7 +26,9 @@ jobs:
       run: pwd 
         
     - name: printLog
-      run: cat ../Task1/log.txt
+      run: cd ../Task1       cat log.txt
+
+      #/home/runner/work/EXADEL-DevOps-SandBox-June2022/EXADEL-DevOps-SandBox-June2022
       
     - name: print Hello SHA
       run: echo "Hello from ${{env.DEPLOY_VER}} commit"
