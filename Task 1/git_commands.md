@@ -1,7 +1,7 @@
 
 # Point 1-2
 
--`git clone https://github.com/GeorgyPzk/ExadelRep1.git`
+- `git clone https://github.com/GeorgyPzk/ExadelRep1.git`
 
 # Point 3
 
@@ -44,7 +44,7 @@
 
 # Point 10-11
 
-Make in GitGub
+Make in GitHub
 
 # Point 12
 
