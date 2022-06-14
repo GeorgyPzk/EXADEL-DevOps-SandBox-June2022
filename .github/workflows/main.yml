@@ -26,7 +26,7 @@ jobs:
       run: pwd 
         
     - name: printLog
-      run: cd ../Task1 | cat log.txt
+      run: cat /home/runner/work/EXADEL-DevOps-SandBox-June2022/EXADEL-DevOps-SandBox-June2022/Task1/log.txt
 
 
       
