@@ -26,7 +26,7 @@ jobs:
       run: pwd 
         
     - name: printLog
-      run: cat Task1/log.txt
+      run: cat ../Task1/log.txt
       
     - name: print Hello SHA
       run: echo "Hello from ${{env.DEPLOY_VER}} commit"
