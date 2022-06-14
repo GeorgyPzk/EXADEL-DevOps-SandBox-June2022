@@ -23,13 +23,8 @@ jobs:
       run: ls -la
       
     - name: printLog
-      run: pwd 
-        
-    - name: printLog
       run: cat /home/runner/work/EXADEL-DevOps-SandBox-June2022/EXADEL-DevOps-SandBox-June2022/Task1/log.txt
 
-
-      
     - name: print Hello SHA
       run: echo "Hello from ${{env.DEPLOY_VER}} commit"
       
