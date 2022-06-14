@@ -26,7 +26,7 @@ jobs:
       run: pwd 
         
     - name: printLog
-      run: cd ../Task1 cat log.txt
+      run: cd ../Task1 & cat log.txt
 
 
       
