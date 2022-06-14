@@ -41,7 +41,7 @@ jobs:
     
     - name: ContanDay
       env:
-        DAY__OF_THE_MONTH: "20"
+        DAY__OF_THE_MONTH: "14"
       run: |
         echo "Day - $DAY__OF_THE_MONTH ;"
         echo "Month - ${{env.MONTH}};"
