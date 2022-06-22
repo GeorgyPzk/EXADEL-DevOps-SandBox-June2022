@@ -44,6 +44,9 @@ jobs:
             . ~/.bashrc
             printenv | grep ^ARM*
 
+    - name: az login
+      run: az login
+
     - name: az account show
       run: az account show
 
