@@ -44,11 +44,14 @@ jobs:
             . ~/.bashrc
             printenv | grep ^ARM*
 
-    - name: az login
-      run: az login
+    - name: 
+      run: |
+            terraform init
+            terraform plan
+#            terraform apply -auto-approve
 
-    - name: az account show
-      run: az account show
+    #- name: az account show
+    #  run: az account show
 
 
 
