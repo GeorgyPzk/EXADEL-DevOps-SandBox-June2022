@@ -44,7 +44,10 @@ jobs:
             . ~/.bashrc
             printenv | grep ^ARM*
 
-    - name: 
+    - name: printPwd
+      run: cd /home/runner/work/EXADEL-DevOps-SandBox-June2022/EXADEL-DevOps-SandBox-June2022/Task3
+
+    - name: terraform run
       run: |
             terraform init
             terraform plan
