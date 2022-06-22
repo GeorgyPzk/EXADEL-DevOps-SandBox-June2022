@@ -47,6 +47,9 @@ jobs:
     - name: printPwd
       run: cd /home/runner/work/EXADEL-DevOps-SandBox-June2022/EXADEL-DevOps-SandBox-June2022/Task3
 
+    - name: print ls
+      run: ls -l
+      
     - name: terraform run
       run: |
             terraform init
