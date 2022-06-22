@@ -35,8 +35,7 @@ jobs:
       #sudo apt-get update && sudo apt-get install terraform
       
     - name: 
-      run: |
-      terraform --version
+      run: terraform --version
 
     - name: print Hello SHA
       run: echo "Hello from ${{env.DEPLOY_VER}} commit"
