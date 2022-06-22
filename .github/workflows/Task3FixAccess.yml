@@ -34,11 +34,11 @@ jobs:
       #sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
       #sudo apt-get update && sudo apt-get install terraform
       
-    - name: 
+    - name: terraform --version
       run: terraform --version
 
-    - name: print Hello SHA
-      run: echo "Hello from ${{env.DEPLOY_VER}} commit"
+    - name: az
+      run: az
 
 
 
