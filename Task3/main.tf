@@ -180,7 +180,7 @@ resource "azurerm_subnet" "subnetCentOS" {
   address_prefixes     = ["10.0.2.0/28"]
 }
 
-resource "azurerm_network_security_group" "subnetsgCentOS" {
+resource "azurerm_network_security_group" "nsgCentOS" {
   name                = "${var.prefix}subnetcentossg"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
