@@ -35,7 +35,7 @@ jobs:
       #sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
       #sudo apt-get update && sudo apt-get install terraform
 
-    - name: service
+    - name: setTerraform
       run: |
 #            export MSYS_NO_PATHCONV=1 
 #            az ad sp create-for-rbac --name <service_principal_name> --role Contributor --scopes /subscriptions/<subscription_id>
