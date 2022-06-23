@@ -22,12 +22,12 @@ resource "azurerm_subnet_network_security_group_association" "ubuntusgassociatio
   network_security_group_id = azurerm_network_security_group.nsgUB.id
 }
 
-#resource "azurerm_subnet_network_security_group_association" "centossgassociation" {
-#  subnet_id                 = azurerm_subnet.subnetcentos.id
-#  network_security_group_id = azurerm_network_security_group.subnetcentossg.id
-#}
+resource "azurerm_subnet_network_security_group_association" "centossgassociation" {
+  subnet_id                 = azurerm_subnet.subnetcentos.id
+  network_security_group_id = azurerm_network_security_group.subnetcentossg.id
+}
 
-######################################################
+#######################################################################
 #UBUNTU
 # Create public IPs
 resource "azurerm_public_ip" "publicipUB" {
@@ -169,3 +169,92 @@ resource "azurerm_virtual_machine" "vmUB" {
 #    }
 #    PROT
 #}
+
+
+#######################################################################
+#CentOS
+resource "azurerm_subnet" "subnetCentOS" {
+  name                 = "${var.prefix}subnetCentOS"
+  resource_group_name  = azurerm_resource_group.rg.name
+  virtual_network_name = azurerm_virtual_network.vnet.name
+  address_prefixes     = ["10.0.2.0/28"]
+}
+
+resource "azurerm_network_security_group" "subnetcentossg" {
+  name                = "${var.prefix}subnetcentossg"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  #Inbound rules
+  security_rule {
+    name                       = "DenyAllInbond"
+    priority                   = 400
+    direction                  = "Inbound"
+    access                     = "Deny"
+    protocol                   = "*" 
+    source_port_range          = "*"
+    destination_port_range     = "*"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+  #Outbound rules
+  security_rule {
+    name                       = "DenyAllOutbound"
+    priority                   = 400
+    direction                  = "Outbound"
+    access                     = "Deny"
+    protocol                   = "*"
+    source_port_range          = "*"
+    destination_port_range     = "*"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+}
+
+# Create network interface
+resource "azurerm_network_interface" "nicCentOS" {
+  name                = "${var.prefix}nicCentOS"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+
+  ip_configuration {
+    name                          = "${var.prefix}ipc2"
+    subnet_id                     = azurerm_subnet.subnetCentOS.id
+    private_ip_address_allocation = "Dynamic"
+  }
+}
+
+# CentOS VM creation
+resource "azurerm_virtual_machine" "vmcentos" {
+  name                  = "${var.prefix}vmcentos"
+  location              = azurerm_resource_group.rg.location
+  resource_group_name   = azurerm_resource_group.rg.name
+  network_interface_ids = [azurerm_network_interface.nicCentOS.id]
+  vm_size               = "Standard_B1s"
+  # Uncomment this line to delete the OS disk automatically when deleting the VM
+  # delete_os_disk_on_termination = true
+  # Uncomment this line to delete the data disks automatically when deleting the VM
+  # delete_data_disks_on_termination = true
+  storage_image_reference {
+    publisher = "OpenLogic"
+    offer     = "CentOS"
+    sku       = "7.5"
+    version   = "latest"        
+  }
+  storage_os_disk {
+    name              = "${var.prefix}myosdisk2"
+    caching           = "ReadWrite"
+    create_option     = "FromImage"
+    managed_disk_type = "Standard_LRS"
+  }
+  os_profile {
+    computer_name  = "hostname"
+    admin_username = "testadmin"
+    admin_password = var.pascentos
+  }
+  os_profile_linux_config {
+    disable_password_authentication = false
+  }
+  tags = {
+    environment = "staging"
+  }
+}
