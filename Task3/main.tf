@@ -22,8 +22,8 @@ resource "azurerm_subnet_network_security_group_association" "ubuntusgassociatio
   network_security_group_id = azurerm_network_security_group.nsgUB.id
 }
 
-resource "azurerm_subnet_network_security_group_association" "centossgassociation" {
-  subnet_id                 = azurerm_subnet.subnetcentos.id
+resource "azurerm_subnet_network_security_group_association" "sgassociationCentOS" {
+  subnet_id                 = azurerm_subnet.subnetsgCentOS.id
   network_security_group_id = azurerm_network_security_group.subnetcentossg.id
 }
 
@@ -47,8 +47,8 @@ resource "azurerm_subnet" "subnetUB" {
 
 # Create Network Security Group and rule
 # Security group UB
-resource "azurerm_network_security_group" "nsgUB" {
-  name                = "${var.prefix}nsgUB"
+resource "azurerm_network_security_group" "subnetsgCentOS" {
+  name                = "${var.prefix}subnetsgCentOS"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 
@@ -176,11 +176,11 @@ resource "azurerm_virtual_machine" "vmUB" {
 resource "azurerm_subnet" "subnetCentOS" {
   name                 = "${var.prefix}subnetCentOS"
   resource_group_name  = azurerm_resource_group.rg.name
-  virtual_network_name = azurerm_virtual_network.vnet.name
+  virtual_network_name = azurerm_virtual_network.network.name
   address_prefixes     = ["10.0.2.0/28"]
 }
 
-resource "azurerm_network_security_group" "subnetcentossg" {
+resource "azurerm_network_security_group" "subnetsgCentOS" {
   name                = "${var.prefix}subnetcentossg"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
