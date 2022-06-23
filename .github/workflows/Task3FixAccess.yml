@@ -35,6 +35,10 @@ jobs:
     - name: printPwd
       run: cd ./Task3
 
+    - name: printCd
+      run: pwd
+
+
     - name: print ls
       run: ls -la
 
