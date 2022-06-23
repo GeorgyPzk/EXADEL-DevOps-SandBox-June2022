@@ -47,8 +47,8 @@ resource "azurerm_subnet" "subnetUB" {
 
 # Create Network Security Group and rule
 # Security group UB
-resource "azurerm_network_security_group" "subnetsgCentOS" {
-  name                = "${var.prefix}subnetsgCentOS"
+resource "azurerm_network_security_group" "subnetsgUB" {
+  name                = "${var.prefix}subnetsgUB"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 
