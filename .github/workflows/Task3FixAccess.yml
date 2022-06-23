@@ -1,13 +1,12 @@
-#edi
 # This is a basic workflow to help you get started with Actions
 name: Task3FixAccess
 env:
   DEPLOY_VER: "VarWithSHA-${{github.sha}}"
   YEAR: "2022"
-  azure_subscription_id: ${{ secrets.azure_subscription_id }} 
-  azure_subscription_tenant_id: ${{ secrets.azure_subscription_tenant_id }}
-  service_principal_appid: ${{ secrets.service_principal_appid }}
-  service_principal_password: ${{ secrets.service_principal_password }}
+  ARM_SUBSCRIPTION_ID: ${{ secrets.azure_subscription_id }} 
+  ARM_TENANT_ID: ${{ secrets.azure_subscription_tenant_id }}
+  ARM_CLIENT_ID: ${{ secrets.service_principal_appid }}
+  ARM_CLIENT_SECRET: ${{ secrets.service_principal_password }}
 
 # Controls when the workflow will run
 on:
@@ -35,15 +34,6 @@ jobs:
       #sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
       #sudo apt-get update && sudo apt-get install terraform
 
-    - name: setTerraform
-      run: |
-            export ARM_SUBSCRIPTION_ID=${{ secrets.azure_subscription_id }} 
-            export ARM_TENANT_ID=${{ secrets.azure_subscription_tenant_id }}
-            export ARM_CLIENT_ID=${{ secrets.service_principal_appid }}
-            export ARM_CLIENT_SECRET=${{ secrets.service_principal_password }}
-            . ~/.bashrc
-            printenv | grep ^ARM*
-
     - name: printPwd
       run: cd ./Task3
 
@@ -54,16 +44,12 @@ jobs:
             cd ./Task3
             terraform init
             terraform plan
-
 #    - name: terraform run
 #      run: |
 #            cd /home/runner/work/EXADEL-DevOps-SandBox-June2022/EXADEL-DevOps-SandBox-June2022/Task3/
 #            terraform init
 #            terraform plan
 #            terraform apply -auto-approve
-
-    - name: az account show
-      run: az account show
 
 
 
