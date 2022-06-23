@@ -3,10 +3,10 @@ name: Task3FixAccess
 env:
   DEPLOY_VER: "VarWithSHA-${{github.sha}}"
   YEAR: "2022"
-  ARM_SUBSCRIPTION_ID: ${{ secrets.azure_subscription_id }} 
-  ARM_TENANT_ID: ${{ secrets.azure_subscription_tenant_id }}
-  ARM_CLIENT_ID: ${{ secrets.service_principal_appid }}
-  ARM_CLIENT_SECRET: ${{ secrets.service_principal_password }}
+  ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }} 
+  ARM_TENANT_ID: ${{ secrets.AZURE_SUBSCRIPTION_TENANT_ID }}
+  ARM_CLIENT_ID: ${{ secrets.SERVICE_PRINCIPAL_APPID }}
+  ARM_CLIENT_SECRET: ${{ secrets.SERVICE_PRINCIPAL_PASSWORD }}
 
 # Controls when the workflow will run
 on:
