@@ -13,20 +13,36 @@ resource "azurerm_virtual_network" "network" {
   resource_group_name = azurerm_resource_group.rg.name
 }
 
-# Create subnet
-resource "azurerm_subnet" "subnetUB" {
-  name                 = "${var.prefix}mySubnet"
-  resource_group_name  = azurerm_resource_group.rg.name
-  virtual_network_name = azurerm_virtual_network.network.name
-  address_prefixes     = ["10.0.1.0/24"]
+
+
+#######################################################################
+# azurerm_subnet_network_security_group_association
+resource "azurerm_subnet_network_security_group_association" "ubuntusgassociation" {
+  subnet_id                 = azurerm_subnet.subnetUB.id
+  network_security_group_id = azurerm_network_security_group.nsgUB.id
 }
 
+#resource "azurerm_subnet_network_security_group_association" "centossgassociation" {
+#  subnet_id                 = azurerm_subnet.subnetcentos.id
+#  network_security_group_id = azurerm_network_security_group.subnetcentossg.id
+#}
+
+######################################################
+#UBUNTU
 # Create public IPs
 resource "azurerm_public_ip" "publicipUB" {
   name                = "${var.prefix}PublicIPUB"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   allocation_method   = "Static"
+}
+
+# Create subnet
+resource "azurerm_subnet" "subnetUB" {
+  name                 = "${var.prefix}mySubnet"
+  resource_group_name  = azurerm_resource_group.rg.name
+  virtual_network_name = azurerm_virtual_network.network.name
+  address_prefixes     = ["10.0.1.0/24"]
 }
 
 # Create Network Security Group and rule
