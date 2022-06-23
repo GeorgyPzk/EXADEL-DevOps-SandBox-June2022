@@ -37,6 +37,10 @@ To connect your PC and Azure:
 Command to create role assigment service principal:
 `New-AzRoleAssignment -ObjectId <objetIDForPrincipal> -RoleDefinitionName Contributor`
 
+# Write terramorm file
+
+[Simple example VM in terraform](https://docs.microsoft.com/ru-ru/azure/developer/terraform/create-linux-virtual-machine-with-infrastructure)
+
 Give rules to application
 
 Writre to bash:
