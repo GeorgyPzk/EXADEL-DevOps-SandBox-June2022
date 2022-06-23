@@ -111,6 +111,13 @@ resource "azurerm_virtual_machine" "vmUB" {
   # Uncomment this line to delete the data disks automatically when deleting the VM
   # delete_data_disks_on_termination = true
 
+  storage_os_disk {
+    name              = "${var.prefix}osdisk1"
+    caching           = "ReadWrite"
+    create_option     = "FromImage"
+    managed_disk_type = "Standard_LRS"
+  }
+
   source_image_reference {
     publisher = "Canonical"
     offer     = "UbuntuServer"
@@ -118,17 +125,12 @@ resource "azurerm_virtual_machine" "vmUB" {
     version   = "latest"
   }
 
-  storage_os_disk {
-    name              = "${var.prefix}osdisk1"
-    caching           = "ReadWrite"
-    create_option     = "FromImage"
-    managed_disk_type = "Standard_LRS"
-  }
   os_profile {
     computer_name  = "hostname"
     admin_username = "testadmin"
     admin_password = var.pasubuntu
   }
+  
   os_profile_linux_config {
     disable_password_authentication = false
   }
