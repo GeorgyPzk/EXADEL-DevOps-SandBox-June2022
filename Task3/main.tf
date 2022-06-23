@@ -118,7 +118,7 @@ resource "azurerm_virtual_machine" "vmUB" {
     managed_disk_type = "Standard_LRS"
   }
 
-  source_image_reference {
+  storage_image_reference {
     publisher = "Canonical"
     offer     = "UbuntuServer"
     sku       = "18.04-LTS"
@@ -130,7 +130,7 @@ resource "azurerm_virtual_machine" "vmUB" {
     admin_username = "testadmin"
     admin_password = var.pasubuntu
   }
-  
+
   os_profile_linux_config {
     disable_password_authentication = false
   }
