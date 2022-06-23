@@ -42,8 +42,8 @@ jobs:
       run: |
             cd ./Task3
             terraform init
-            terraform plan
-            terraform applay
+            terraform apply -auto-approve  
+            
 #    - name: terraform run
 #      run: |
 #            cd /home/runner/work/EXADEL-DevOps-SandBox-June2022/EXADEL-DevOps-SandBox-June2022/Task3/
