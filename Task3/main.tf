@@ -23,8 +23,8 @@ resource "azurerm_subnet_network_security_group_association" "ubuntusgassociatio
 }
 
 resource "azurerm_subnet_network_security_group_association" "sgassociationCentOS" {
-  subnet_id                 = azurerm_subnet.subnetsgCentOS.id
-  network_security_group_id = azurerm_network_security_group.subnetcentossg.id
+  subnet_id                 = azurerm_subnet.subnetCentOS.id
+  network_security_group_id = azurerm_network_security_group.nsgCentOS.id
 }
 
 #######################################################################
@@ -47,7 +47,7 @@ resource "azurerm_subnet" "subnetUB" {
 
 # Create Network Security Group and rule
 # Security group UB
-resource "azurerm_network_security_group" "subnetsgUB" {
+resource "azurerm_network_security_group" "nsgUB" {
   name                = "${var.prefix}subnetsgUB"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
