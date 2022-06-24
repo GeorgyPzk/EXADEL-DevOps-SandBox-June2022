@@ -49,4 +49,7 @@ export ARM_TENANT_ID="<azure_subscription_tenant_id>"
 export ARM_CLIENT_ID="<service_principal_appid>"
 export ARM_CLIENT_SECRET="<service_principal_password>"
 
+# Set up security_group
+[security_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_group)
+
 

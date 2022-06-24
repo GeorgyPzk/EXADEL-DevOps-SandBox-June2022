@@ -188,7 +188,7 @@ resource "azurerm_network_security_group" "nsgCentOS" {
   #Inbound rules
   security_rule {
     name                       = "DenyAllInbond"
-    priority                   = 400
+    priority                   = 3000
     direction                  = "Inbound"
     access                     = "Deny"
     protocol                   = "*" 
@@ -200,7 +200,7 @@ resource "azurerm_network_security_group" "nsgCentOS" {
   #Outbound rules
   security_rule {
     name                       = "DenyAllOutbound"
-    priority                   = 500
+    priority                   = 3200
     direction                  = "Outbound"
     access                     = "Deny"
     protocol                   = "*"
@@ -209,7 +209,7 @@ resource "azurerm_network_security_group" "nsgCentOS" {
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
-
+  # Inbound rules for vmUB
   security_rule {
     name                       = "tcp22"
     priority                   = 2000
@@ -218,7 +218,7 @@ resource "azurerm_network_security_group" "nsgCentOS" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "22"
-    source_address_prefix      = "*"
+    source_address_prefix      = azurerm_virtual_machine.vmUB.private_ip_address
     destination_address_prefix = "*"
   }
   security_rule {
@@ -229,7 +229,7 @@ resource "azurerm_network_security_group" "nsgCentOS" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "80"
-    source_address_prefix      = "*"
+    source_address_prefix      = azurerm_virtual_machine.vmUB.private_ip_address
     destination_address_prefix = "*"
   }
   security_rule {
@@ -240,11 +240,43 @@ resource "azurerm_network_security_group" "nsgCentOS" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "443"
-    source_address_prefix      = "*"
+    source_address_prefix      = azurerm_virtual_machine.vmUB.private_ip_address
     destination_address_prefix = "*"
   }
-
-
+  # OutBount for vmUB
+  security_rule {
+    name                       = "tcp22"
+    priority                   = 2000
+    direction                  = "Outbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "22"
+    source_address_prefix      = azurerm_virtual_machine.vmUB.private_ip_address
+    destination_address_prefix = "*"
+  }
+  security_rule {
+    name                       = "tcp80"
+    priority                   = 2200
+    direction                  = "Outbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "80"
+    source_address_prefix      = azurerm_virtual_machine.vmUB.private_ip_address
+    destination_address_prefix = "*"
+  }
+  security_rule {
+    name                       = "tcp443"
+    priority                   = 2400
+    direction                  = "Outbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "443"
+    source_address_prefix      = azurerm_virtual_machine.vmUB.private_ip_address
+    destination_address_prefix = "*"
+  }
 }
 
 # Create network interface
