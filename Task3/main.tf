@@ -120,7 +120,7 @@ resource "azurerm_virtual_machine" "vmUB" {
   location              = azurerm_resource_group.rg.location
   resource_group_name   = azurerm_resource_group.rg.name
   network_interface_ids = [azurerm_network_interface.nicUB.id]
-  vm_size               = "D2as_v5"
+  vm_size               = "Standard_D2as_v5"
   # Uncomment this line to delete the OS disk automatically when deleting the VM
   # delete_os_disk_on_termination = true
 
@@ -229,7 +229,7 @@ resource "azurerm_virtual_machine" "vmcentos" {
   location              = azurerm_resource_group.rg.location
   resource_group_name   = azurerm_resource_group.rg.name
   network_interface_ids = [azurerm_network_interface.nicCentOS.id]
-  vm_size               = "D2as_v5"
+  vm_size               = "Standard_D2as_v5"
   # Uncomment this line to delete the OS disk automatically when deleting the VM
   # delete_os_disk_on_termination = true
   # Uncomment this line to delete the data disks automatically when deleting the VM
