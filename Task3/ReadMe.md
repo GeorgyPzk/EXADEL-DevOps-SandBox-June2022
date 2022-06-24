@@ -106,7 +106,7 @@ Active fierwall:
 
 `echo "Hello World" > /var/www/html/index.html`
 
-[echo "<<EOF
+echo "<<EOF
 events {
     worker_connections 1024;
 }
@@ -121,6 +121,8 @@ http {
         }
     }
 }
-EOF" > /etc/nginx/nginx.conf]
-systemctl stop nginx
-systemctl start nginx
+EOF" > /etc/nginx/nginx.conf
+
+`systemctl stop nginx`
+
+`systemctl start nginx`
