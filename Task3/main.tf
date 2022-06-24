@@ -155,21 +155,20 @@ resource "azurerm_virtual_machine" "vmUB" {
   }
 }
 
-##azurerm_virtual_machine_extension
-#resource "azurerm_virtual_machine_extension" "vmext" {
-#  name                 = "${var.prefix}vmext"
-#  virtual_machine_id   = azurerm_virtual_machine.vmUB.id
-#  publisher            = "Microsoft.Azure.Extensions"
-#  type                 = "CustomScript"
-#  type_handler_version = "2.1"
-#
-#  protected_settings = <<PROT
-#    {
-#        "script": "${base64encode(file("script.sh"))}"
-#    }
-#    PROT
-#}
+#azurerm_virtual_machine_extension
+resource "azurerm_virtual_machine_extension" "vmext" {
+  name                 = "${var.prefix}vmext"
+  virtual_machine_id   = azurerm_virtual_machine.vmUB.id
+  publisher            = "Microsoft.Azure.Extensions"
+  type                 = "CustomScript"
+  type_handler_version = "2.1"
 
+  protected_settings = <<PROT
+    {
+        "script": "${base64encode(file("script.sh"))}"
+    }
+    PROT
+}
 
 #######################################################################
 #CentOS
