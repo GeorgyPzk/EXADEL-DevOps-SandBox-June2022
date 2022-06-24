@@ -17,7 +17,7 @@ resource "azurerm_virtual_network" "network" {
 
 #######################################################################
 # azurerm_subnet_network_security_group_association
-resource "azurerm_subnet_network_security_group_association" "ubuntusgassociation" {
+resource "azurerm_subnet_network_security_group_association" "sgassociationUB" {
   subnet_id                 = azurerm_subnet.subnetUB.id
   network_security_group_id = azurerm_network_security_group.nsgUB.id
 }
@@ -29,6 +29,7 @@ resource "azurerm_subnet_network_security_group_association" "sgassociationCentO
 
 #######################################################################
 #UBUNTU
+#######################################################################
 # Create public IPs
 resource "azurerm_public_ip" "publicipUB" {
   name                = "${var.prefix}PublicIPUB"
@@ -172,6 +173,7 @@ resource "azurerm_virtual_machine_extension" "vmext" {
 
 #######################################################################
 #CentOS
+#######################################################################
 resource "azurerm_subnet" "subnetCentOS" {
   name                 = "${var.prefix}subnetCentOS"
   resource_group_name  = azurerm_resource_group.rg.name
@@ -198,7 +200,7 @@ resource "azurerm_network_security_group" "nsgCentOS" {
   #Outbound rules
   security_rule {
     name                       = "DenyAllOutbound"
-    priority                   = 400
+    priority                   = 500
     direction                  = "Outbound"
     access                     = "Deny"
     protocol                   = "*"
@@ -207,6 +209,42 @@ resource "azurerm_network_security_group" "nsgCentOS" {
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
+
+  security_rule {
+    name                       = "tcp22"
+    priority                   = 2000
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "22"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+  security_rule {
+    name                       = "tcp80"
+    priority                   = 2200
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "80"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+  security_rule {
+    name                       = "tcp443"
+    priority                   = 2400
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "443"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+
+
 }
 
 # Create network interface

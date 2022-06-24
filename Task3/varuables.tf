@@ -1,5 +1,5 @@
 variable "prefix" {
-  default = "1"
+  default = "2"
 }
 
 variable "resource_group_location" {
