@@ -8,8 +8,6 @@ Or unpack in C:\Windows\System32
 
 ## Set up terraform user in Microsoft Azure (Authenticate Terraform to Azure)
 
-?????[Guide](https://docs.microsoft.com/en-us/azure/developer/terraform/get-started-cloud-shell-bash?tabs=bash).
-
 Install CLI. It is need to work with Azure in your PC:
 [Guide Install Azure CLI on Windows](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli)
 
@@ -27,7 +25,7 @@ C:\Users\user\.azure
 [Azure Command-Line Interface (CLI) documentation](https://docs.microsoft.com/en-us/cli/azure/)
 
 
-# Fix problem 
+# Fix problem with acsess azure to github
 
 [Creating a service principal](https://docs.microsoft.com/en-us/azure/purview/create-service-principal-azure)
 
@@ -37,10 +35,6 @@ To connect your PC and Azure:
 Command to create role assigment service principal:
 `New-AzRoleAssignment -ObjectId <objetIDForPrincipal> -RoleDefinitionName Contributor`
 
-# Write terramorm file
-
-[Simple example VM in terraform](https://docs.microsoft.com/ru-ru/azure/developer/terraform/create-linux-virtual-machine-with-infrastructure)
-
 Give rules to application
 
 Writre to bash:
@@ -49,7 +43,12 @@ export ARM_TENANT_ID="<azure_subscription_tenant_id>"
 export ARM_CLIENT_ID="<service_principal_appid>"
 export ARM_CLIENT_SECRET="<service_principal_password>"
 
-# Set up security_group
+# Write terramorm file
+
+[Simple example VM in terraform](https://docs.microsoft.com/ru-ru/azure/developer/terraform/create-linux-virtual-machine-with-infrastructure)
+
+## Set up security_group
+
 [security_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_group)
 
 
