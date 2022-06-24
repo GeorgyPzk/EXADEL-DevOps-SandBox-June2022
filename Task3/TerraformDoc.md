@@ -30,6 +30,7 @@ C:\Users\user\.azure
 [Creating a service principal](https://docs.microsoft.com/en-us/azure/purview/create-service-principal-azure)
 
 To connect your PC and Azure:
+
 [Specify service principal credentials in environment variables](https://docs.microsoft.com/en-us/azure/developer/terraform/authenticate-to-azure?tabs=bash)
 
 Command to create role assigment service principal:
@@ -38,10 +39,10 @@ Command to create role assigment service principal:
 Give rules to application
 
 Writre to bash:
-export ARM_SUBSCRIPTION_ID="<azure_subscription_id>"
-export ARM_TENANT_ID="<azure_subscription_tenant_id>"
-export ARM_CLIENT_ID="<service_principal_appid>"
-export ARM_CLIENT_SECRET="<service_principal_password>"
+`export ARM_SUBSCRIPTION_ID="<azure_subscription_id>"`
+`export ARM_TENANT_ID="<azure_subscription_tenant_id>"`
+`export ARM_CLIENT_ID="<service_principal_appid>"`
+`export ARM_CLIENT_SECRET="<service_principal_password>"`
 
 # Write terramorm file
 
