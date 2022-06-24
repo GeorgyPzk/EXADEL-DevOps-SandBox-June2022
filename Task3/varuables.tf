@@ -1,5 +1,5 @@
 variable "prefix" {
-  default = "3"
+  default = "4"
 }
 
 variable "resource_group_location" {
@@ -10,10 +10,10 @@ variable "resource_group_location" {
 variable "pasubuntu" {
   description = "Value of the password for the azure instance"
   type        = string
-  default     = "ExampleString"
+  default     = "ExampleString1!"
 }
 variable "pascentos" {
   description = "Value of the password tag for the azure instance"
   type        = string
-  default     = "ExampleString"
+  default     = "ExampleString1!"
 }
