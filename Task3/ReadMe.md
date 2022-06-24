@@ -62,8 +62,8 @@ Writre to bash:
 
 # EXTRA 
 
-Connect to linux(ssh)
-Write command to download packages:
+Connect to linux(ssh) then write command to download packages:
+
 `wget https://nginx.org/packages/centos/7/x86_64/RPMS/nginx-1.22.0-1.el7.ngx.x86_64.rpm`
 
 `scp /home/testadmin/nginx-1.22.0-1.el7.ngx.x86_64.rpm testadmin@10.0.2.4:/home/testadmin`
