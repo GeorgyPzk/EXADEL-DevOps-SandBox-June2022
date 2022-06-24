@@ -48,10 +48,16 @@ jobs:
 #            terraform init
 #            terraform plan
             
-    - name: terraform run
+    - name: terraform plan
       run: |
             cd ./Task3
             terraform init
+            terraform plan
+            terraform apply -auto-approve
+
+    - name: terraform create
+      run: |
+            cd ./Task3
             terraform apply -auto-approve
 
 
