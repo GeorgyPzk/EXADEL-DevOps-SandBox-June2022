@@ -211,7 +211,7 @@ resource "azurerm_network_security_group" "nsgCentOS" {
   }
   # Inbound rules for vmUB
   security_rule {
-    name                       = "tcp22"
+    name                       = "INtcp22"
     priority                   = 2000
     direction                  = "Inbound"
     access                     = "Allow"
@@ -222,7 +222,7 @@ resource "azurerm_network_security_group" "nsgCentOS" {
     destination_address_prefix = "*"
   }
   security_rule {
-    name                       = "tcp80"
+    name                       = "INtcp80"
     priority                   = 2200
     direction                  = "Inbound"
     access                     = "Allow"
@@ -233,7 +233,7 @@ resource "azurerm_network_security_group" "nsgCentOS" {
     destination_address_prefix = "*"
   }
   security_rule {
-    name                       = "tcp443"
+    name                       = "INtcp443"
     priority                   = 2400
     direction                  = "Inbound"
     access                     = "Allow"
@@ -245,7 +245,7 @@ resource "azurerm_network_security_group" "nsgCentOS" {
   }
   # OutBount for vmUB
   security_rule {
-    name                       = "tcp22"
+    name                       = "OUTtcp22"
     priority                   = 2000
     direction                  = "Outbound"
     access                     = "Allow"
@@ -256,7 +256,7 @@ resource "azurerm_network_security_group" "nsgCentOS" {
     destination_address_prefix = "*"
   }
   security_rule {
-    name                       = "tcp80"
+    name                       = "OUTtcp80"
     priority                   = 2200
     direction                  = "Outbound"
     access                     = "Allow"
@@ -267,7 +267,7 @@ resource "azurerm_network_security_group" "nsgCentOS" {
     destination_address_prefix = "*"
   }
   security_rule {
-    name                       = "tcp443"
+    name                       = "OUTtcp443"
     priority                   = 2400
     direction                  = "Outbound"
     access                     = "Allow"
