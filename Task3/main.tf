@@ -218,7 +218,7 @@ resource "azurerm_network_security_group" "nsgCentOS" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "22"
-    source_address_prefix      = "${azurerm_virtual_machine.vmUB.private_ip_address}"
+    source_address_prefix      = ["10.0.1.0/24"]
     destination_address_prefix = "*"
   }
   security_rule {
@@ -229,7 +229,7 @@ resource "azurerm_network_security_group" "nsgCentOS" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "80"
-    source_address_prefix      = "${azurerm_virtual_machine.vmUB.private_ip_address}"
+    source_address_prefix      = ["10.0.1.0/24"]
     destination_address_prefix = "*"
   }
   security_rule {
@@ -240,7 +240,7 @@ resource "azurerm_network_security_group" "nsgCentOS" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "443"
-    source_address_prefix      = azurerm_virtual_machine.vmUB.private_ip_address
+    source_address_prefix      = ["10.0.1.0/24"]
     destination_address_prefix = "*"
   }
   # OutBount for vmUB
@@ -252,7 +252,7 @@ resource "azurerm_network_security_group" "nsgCentOS" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "22"
-    source_address_prefix      = "${azurerm_virtual_machine.vmUB.private_ip_address}"
+    source_address_prefix      = ["10.0.1.0/24"]
     destination_address_prefix = "*"
   }
   security_rule {
@@ -263,7 +263,7 @@ resource "azurerm_network_security_group" "nsgCentOS" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "80"
-    source_address_prefix      = "${azurerm_virtual_machine.vmUB.private_ip_address}"
+    source_address_prefix      = ["10.0.1.0/24"]
     destination_address_prefix = "*"
   }
   security_rule {
@@ -274,7 +274,7 @@ resource "azurerm_network_security_group" "nsgCentOS" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "443"
-    source_address_prefix      = "${azurerm_virtual_machine.vmUB.private_ip_address}"
+    source_address_prefix      = ["10.0.1.0/24"]
     destination_address_prefix = "*"
   }
 }
