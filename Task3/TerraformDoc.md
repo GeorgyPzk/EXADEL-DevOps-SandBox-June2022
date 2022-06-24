@@ -51,4 +51,7 @@ export ARM_CLIENT_SECRET="<service_principal_password>"
 
 [security_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_group)
 
+## get private ip
+
+[security_group](https://registry.terraform.io/providers/hashicorp/Azurerm/latest/docs/data-sources/virtual_machine)
 
