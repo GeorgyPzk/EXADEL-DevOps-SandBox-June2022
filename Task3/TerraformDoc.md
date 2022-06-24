@@ -30,7 +30,6 @@ C:\Users\user\.azure
 [Creating a service principal](https://docs.microsoft.com/en-us/azure/purview/create-service-principal-azure)
 
 To connect your PC and Azure:
-
 [Specify service principal credentials in environment variables](https://docs.microsoft.com/en-us/azure/developer/terraform/authenticate-to-azure?tabs=bash)
 
 Command to create role assigment service principal:
@@ -56,3 +55,67 @@ Writre to bash:
 
 [data](https://registry.terraform.io/providers/hashicorp/Azurerm/latest/docs/data-sources/virtual_machine)
 
+# EXTRA 
+
+Connect to linux(ssh)
+Write command to download packages:
+`wget https://nginx.org/packages/centos/7/x86_64/RPMS/nginx-1.22.0-1.el7.ngx.x86_64.rpm`
+
+`scp /home/testadmin/nginx-1.22.0-1.el7.ngx.x86_64.rpm testadmin@10.0.2.4:/home/testadmin`
+
+`ssh testadmin@10.0.2.4`
+
+`sudo rpm -i nginx-1.22.0-1.el7.ngx.x86_64.rpm`
+
+To install nginx you need download libpcre2-8.so.0()(64bit) too:
+
+[link](https://rpmfind.net/linux/rpm2html/search.php?query=libpcre2-8.so.0()(64bit))
+
+https://rpmfind.net/linux/centos/7.9.2009/os/x86_64/Packages/pcre2-10.23-2.el7.x86_64.rpm
+
+`wget https://rpmfind.net/linux/centos/7.9.2009/os/x86_64/Packages/pcre2-10.23-2.el7.x86_64.rpm`
+
+
+`scp /home/testadmin/pcre2-10.23-2.el7.x86_64.rpm testadmin@10.0.2.4:/home/testadmin`
+
+At CentOs:
+
+`sudo rpm -i pcre2-10.23-2.el7.x86_64.rpm`
+
+`sudo rpm -i nginx-1.22.0-1.el7.ngx.x86_64.rpm`
+
+`sudo yum install epel-release`
+
+`sudo yum install nginx`
+
+Active fierwall:
+
+`rpm -qa firewalld`
+`/usr/lib/systemd/system | grep firewalld`
+
+`sudo systemctl start nginx`
+
+`sudo chown testadmin /var/www/html`
+
+`touch /var/www/html/index.html`
+
+`echo "Hello World" > /var/www/html/index.html`
+
+echo "<<EOF
+events {
+    worker_connections 1024;
+}
+
+http {
+
+    server {
+        listen 80;
+
+        location / {
+            root /www/html;
+        }
+    }
+}
+EOF" > /etc/nginx/nginx.conf
+systemctl stop nginx
+systemctl start nginx
