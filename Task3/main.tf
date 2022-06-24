@@ -151,9 +151,6 @@ resource "azurerm_virtual_machine" "vmUB" {
   os_profile_linux_config {
     disable_password_authentication = false
   }
-  tags = {
-    environment = "staging"
-  }
 }
 
 #azurerm_virtual_machine_extension
@@ -333,8 +330,5 @@ resource "azurerm_virtual_machine" "vmcentos" {
   }
   os_profile_linux_config {
     disable_password_authentication = false
-  }
-  tags = {
-    environment = "staging"
   }
 }
