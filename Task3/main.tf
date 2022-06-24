@@ -171,6 +171,17 @@ resource "azurerm_virtual_machine_extension" "vmext" {
     PROT
 }
 
+data "azurerm_virtual_machine" "vmUB" {
+  name                = azurerm_virtual_machine.vmUB.name
+  resource_group_name = azurerm_resource_group.rg.name
+}
+
+#output "virtual_machine_id" {
+#  value = data.azurerm_virtual_machine.vmUB.private_ip_address
+#}
+
+
+
 #######################################################################
 #CentOS
 #######################################################################
@@ -218,7 +229,7 @@ resource "azurerm_network_security_group" "nsgCentOS" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "22"
-    source_address_prefix      = "10.0.1.0/24"
+    source_address_prefix      = data.azurerm_virtual_machine.vmUB.private_ip_address
     destination_address_prefix = "*"
   }
   security_rule {
@@ -229,7 +240,7 @@ resource "azurerm_network_security_group" "nsgCentOS" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "80"
-    source_address_prefix      = "10.0.1.0/24"
+    source_address_prefix      = data.azurerm_virtual_machine.vmUB.private_ip_address
     destination_address_prefix = "*"
   }
   security_rule {
@@ -240,7 +251,7 @@ resource "azurerm_network_security_group" "nsgCentOS" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "443"
-    source_address_prefix      = "10.0.1.0/24"
+    source_address_prefix      = data.azurerm_virtual_machine.vmUB.private_ip_address
     destination_address_prefix = "*"
   }
   # OutBount for vmUB
@@ -252,7 +263,7 @@ resource "azurerm_network_security_group" "nsgCentOS" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "22"
-    source_address_prefix      = "10.0.1.0/24"
+    source_address_prefix      = data.azurerm_virtual_machine.vmUB.private_ip_address
     destination_address_prefix = "*"
   }
   security_rule {
@@ -263,7 +274,7 @@ resource "azurerm_network_security_group" "nsgCentOS" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "80"
-    source_address_prefix      = "10.0.1.0/24"
+    source_address_prefix      = data.azurerm_virtual_machine.vmUB.private_ip_address
     destination_address_prefix = "*"
   }
   security_rule {
@@ -274,7 +285,7 @@ resource "azurerm_network_security_group" "nsgCentOS" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "443"
-    source_address_prefix      = "10.0.1.0/24"
+    source_address_prefix      = data.azurerm_virtual_machine.vmUB.private_ip_address
     destination_address_prefix = "*"
   }
 }
