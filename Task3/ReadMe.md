@@ -95,6 +95,8 @@ At CentOs:
 
 Active fierwall:
 
+[Guide](https://linuxhint.com/fix-firewalld-not-running-error-centos/)
+
 `rpm -qa firewalld`
 `/usr/lib/systemd/system | grep firewalld`
 
