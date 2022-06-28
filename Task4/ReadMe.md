@@ -43,7 +43,7 @@ imagename == imageid
 
 Сreated VM:
 
-![VM!](/images/1.jpg "San Juan Mountains")
+![VM!](/Task4/images/1.jpg "San Juan Mountains")
 
 ## 1
 
