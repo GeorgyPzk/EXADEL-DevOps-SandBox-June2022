@@ -41,10 +41,6 @@ imagename == imageid
 
 # Tasks
 
-Сreated VM:
-
-![VM!](/home/runner/work/EXADEL-DevOps-SandBox-June2022/EXADEL-DevOps-SandBox-June2022/Task4/images/1.jpg "San Juan Mountains")
-
 ## 1
 
 Bash script in repository
