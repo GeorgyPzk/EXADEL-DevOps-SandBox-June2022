@@ -36,7 +36,13 @@ __Enter__ to container:
 
 `docker exec -it <imagename> /bin/bash`
 
+__Create__ image:
+
+`docker build -t mycontainer:v1 .`
+
 imagename == imageid 
+
+[Some More](https://habr.com/ru/company/flant/blog/336654/)
 
 
 # Tasks
@@ -58,12 +64,29 @@ Main steps/command:
 4. Download nano or vi if you want, then edit file `/usr/share/nginx/html/index.html`
 
 [Result](https://13.81.111.118:80)
-
+ 
 ## 3
 
-### 3.1
+1. Copy `webservice-install.sh` and `Dockerfile` to VM
+2. `docker build -t mycontainer:v1 .`
+3. `docker run -d -p 80:80 <imagename>` 
 
+## 4
 
+1. To login at DockerHub:
 
-### 3.2
+`docker login`
 
+2. Create a new image of the appropriate format:
+
+`docker tag 7d9495d03763 maryatdocker/docker-whale:latest`
+
+3. Push to DockerHub:
+
+`docker push georgypzk/docker-whale`
+
+[Link to my DockerHub](https://hub.docker.com/r/georgypzk/task4)
+
+## 5
+
+Click `new workflow`. Then `Docker image`
