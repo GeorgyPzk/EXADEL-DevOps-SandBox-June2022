@@ -43,7 +43,7 @@ imagename == imageid
 
 Сreated VM:
 
-![VM!](/Task4/images/1.jpg "San Juan Mountains")
+![VM!](/home/runner/work/EXADEL-DevOps-SandBox-June2022/EXADEL-DevOps-SandBox-June2022/Task4/images/1.jpg "San Juan Mountains")
 
 ## 1
 
