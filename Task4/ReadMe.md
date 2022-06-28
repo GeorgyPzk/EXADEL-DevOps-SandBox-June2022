@@ -1,7 +1,5 @@
 # Docker command:
 
-imagename == imageid 
-
 __Find__ some images:
 
 `docker search <imagename>`
@@ -38,8 +36,14 @@ __Enter__ to container:
 
 `docker exec -it <imagename> /bin/bash`
 
+imagename == imageid 
+
 
 # Tasks
+
+Сreated VM:
+
+![VM!](/images/1.jpg "San Juan Mountains")
 
 ## 1
 
@@ -49,17 +53,21 @@ Bash script in repository
 
 Main steps/command:
 
-`sudo docker pull nginx`
+1. `sudo docker pull nginx`
 
-`sudo docker run -d -p 80:80 nginx`
+2. `sudo docker run -d -p 80:80 nginx`
 
-`sudo docker exec -it fbe895f31b03 /bin/bash`
+3. `sudo docker exec -it fbe895f31b03 /bin/bash`
 
-Download nano or vi if you want, then edit file `/usr/share/nginx/html/index.html`
+4. Download nano or vi if you want, then edit file `/usr/share/nginx/html/index.html`
 
 [Result](https://13.81.111.118:80)
 
 ## 3
 
 ### 3.1
+
+
+
+### 3.2
 
