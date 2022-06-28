@@ -2,23 +2,23 @@
 
 imagename == imageid 
 
-Find some images:
+__Find__ some images:
 
 `docker search <imagename>`
 
-Download image:
+__Download__ image:
 
 `docker pull <imagename>`
 
-Show all images in VM:
+__Show all__ images in VM:
 
 `docker images`
 
-Show active containers:
+__Show active__ containers:
 
 `docker ps` `docker ps -a`
 
-Run image:
+__Run__ image:
 
 Inside (ctrl+c to cancel):
  `docker run -it -p 80:8080 <imagename>` 
@@ -26,15 +26,15 @@ Inside (ctrl+c to cancel):
 Background:
  `docker run -d -p 80:8080 <imagename>` 
 
-Delite container:
+__Stop__ container:
 
 `docker rm <imagename>`
 
-Delite image:
+__Delite__ image:
 
 `docker rmi <imagename>`
 
-Login to container:
+__Enter__ to container:
 
 `docker exec -it <imagename> /bin/bash`
 
