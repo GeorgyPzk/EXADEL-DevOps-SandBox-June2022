@@ -57,7 +57,7 @@ Main steps/command:
 
 Download nano or vi if you want, then edit file `/usr/share/nginx/html/index.html`
 
-[Result](13.81.111.118:80)
+[Result](https://13.81.111.118:80)
 
 ## 3
 
