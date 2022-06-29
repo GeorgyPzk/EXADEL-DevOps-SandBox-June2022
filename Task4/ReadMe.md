@@ -117,4 +117,5 @@ For use environment variables create `.env` file and fill value to varible.
 In `docker-compose.yml` write like this:
 
 `    environment:`
+
 `      CATALINA_BASE: ${CATALINA_BASE_PATH}`
