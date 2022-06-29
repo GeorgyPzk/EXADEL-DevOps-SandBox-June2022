@@ -99,3 +99,7 @@ Click `new workflow`. Then `Docker image`
 ## 6
 
 docker-compose.yml
+
+For run with duplicates you can use the command:
+
+`docker-compose up scale myapp=5`

@@ -5,7 +5,7 @@ services:
     image: georgypzk/task4
     restart: always
     ports:
-      - 81:80
+      - "80-85:80"
 
   java-app:
     image: tomcat 
