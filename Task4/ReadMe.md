@@ -40,6 +40,11 @@ __Create__ image:
 
 `docker build -t mycontainer:v1 .`
 
+__Docker compose__:
+
+Background:
+`docker-compose up --build -d`
+
 imagename == imageid 
 
 [Some More](https://habr.com/ru/company/flant/blog/336654/)

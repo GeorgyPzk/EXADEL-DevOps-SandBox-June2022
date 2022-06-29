@@ -7,30 +7,6 @@ services:
     ports:
       - 81:80
 
-  myapp2:
-    image: georgypzk/task4
-    restart: always
-    ports:
-      - 82:80 
-
-  myapp3:
-    image: georgypzk/task4
-    restart: always
-    ports:
-      - 83:80
-  
-  myapp4:
-    image: georgypzk/task4
-    restart: always
-    ports:
-      - 84:80
-        
-  myapp5:
-    image: georgypzk/task4
-    restart: always
-    ports:
-      - 85:80
-
   java-app:
     image: tomcat 
     restart: always
