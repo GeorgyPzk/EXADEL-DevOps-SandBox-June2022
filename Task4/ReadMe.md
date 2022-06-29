@@ -72,9 +72,18 @@ Main steps/command:
  
 ## 3
 
-1. Copy `webservice-install.sh` and `Dockerfile` to VM
-2. `docker build -t mycontainer:v1 .`
-3. `docker run -d -p 80:80 <imagename>` 
+1. Copy `webservice-install.sh` and `Dockerfile` to VM. `Webservice-install.sh` and `Dockerfile` you can see in repositories.
+2. To build an image from Dockerfile write:
+`docker build -t mycontainer:v1 .`
+`.` at the end means that the search for the dockerfile happens in the current folder.
+3. To run container in background:
+`docker run -d -p 80:80 <imagename>` 
+
+Dockerfile can hand over environment variables to container. You can use this in dockerfile:
+
+`ENV DEVOPS = "George"`
+
+Then this variables use in ngix and displayed on the site.
 
 ## 4
 
@@ -92,14 +101,20 @@ Main steps/command:
 
 [Link to my DockerHub](https://hub.docker.com/r/georgypzk/task4)
 
+### 4.1
+
+Click `new workflow`. Then `Docker image`. Don`t forget move folder with Dockerfile.
+
 ## 5
 
-Click `new workflow`. Then `Docker image`
-
-## 6
-
-docker-compose.yml
+Create and fill `docker-compose.yml` file.
 
 For run with duplicates you can use the command:
 
 `docker-compose up scale myapp=5`
+
+For use environment variables create `.env` file and fill value to varible.
+In `docker-compose.yml` write like this:
+
+`    environment:`
+`      CATALINA_BASE: ${CATALINA_BASE_PATH}`
