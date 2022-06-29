@@ -90,3 +90,7 @@ Main steps/command:
 ## 5
 
 Click `new workflow`. Then `Docker image`
+
+## 6
+
+docker-compose.yml
