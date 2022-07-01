@@ -8,7 +8,7 @@
 
 `ssh -i "F:/Documents/Exadel/SshKey/Vm1_key.pem" azureuser@20.125.130.232`
 
-3. Pythin needed to install ansible, but Ubuntu and CentOS have Python in defoult. 
+3. Python needed to install ansible, but Ubuntu and CentOS have Python in defoult. 
 4. List command to install ansible:
 
 `sudo apt-add-repository ppa:ansible/ansible`
