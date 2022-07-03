@@ -45,6 +45,13 @@ On vm1:
 
 `sudo docker exec -it 06e14ec275e3 /bin/bash`
 
+To fix error with python an ansible:
+`sudo apt install python3-docker`
+
+`sudo apt install python3-pip`
+
+`pip install docker==4.4.4`
+
 In container:
 
 `apt-get update`
@@ -72,3 +79,9 @@ on vm1:
 `docker tag <imageID> georgypzk/lemp-stak-task5:v1`
 
 `docker push georgypzk/lemp-stak-task5:v1`
+
+Run playbook:
+
+`sudo ansible-playbook playbook.yml`
+
+Output can find in `OutPutDockerEXTRA.txt`
