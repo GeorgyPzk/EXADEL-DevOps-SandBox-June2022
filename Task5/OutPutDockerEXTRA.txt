@@ -1,27 +1,55 @@
-azureuser@Vm1:~/ansible$ ansible-playbook playbook.yml
+azureuser@Vm1:~/ansible$ sudo ansible-playbook playbook.yml
 
-PLAY [Install docker] **************************************************************************************************
+PLAY [Install docker] ************************************************************************************************************************
 
-TASK [Gathering Facts] *************************************************************************************************
+TASK [Gathering Facts] ***********************************************************************************************************************
+ok: [Vm3]
+ok: [Vm2]
+
+TASK [Install aptitude using apt] ************************************************************************************************************
+ok: [Vm3]
+ok: [Vm2]
+
+TASK [Install required system packages] ******************************************************************************************************
+ok: [Vm3] => (item=apt-transport-https)
+ok: [Vm2] => (item=apt-transport-https)
+ok: [Vm3] => (item=ca-certificates)
+ok: [Vm2] => (item=ca-certificates)
+ok: [Vm3] => (item=curl)
+ok: [Vm2] => (item=curl)
+ok: [Vm3] => (item=software-properties-common)
+ok: [Vm2] => (item=software-properties-common)
+ok: [Vm3] => (item=python3-pip)
+ok: [Vm2] => (item=python3-pip)
+ok: [Vm3] => (item=virtualenv)
+ok: [Vm2] => (item=virtualenv)
+ok: [Vm3] => (item=python3-setuptools)
+ok: [Vm2] => (item=python3-setuptools)
+
+TASK [Add Docker GPG apt Key] ****************************************************************************************************************
 ok: [Vm2]
 ok: [Vm3]
 
-TASK [ensure repository key is installed] ******************************************************************************
-changed: [Vm3]
-changed: [Vm2]
+TASK [Add Docker Repository] *****************************************************************************************************************
+ok: [Vm3]
+ok: [Vm2]
 
-TASK [ensure docker registry is available] *****************************************************************************
-changed: [Vm2]
-changed: [Vm3]
+TASK [Update apt and install docker-ce] ******************************************************************************************************
+ok: [Vm3]
+ok: [Vm2]
 
-TASK [ensure docker and dependencies are installed] ********************************************************************
-changed: [Vm3]
-changed: [Vm2]
+TASK [Install Docker Module for Python] ******************************************************************************************************
+ok: [Vm2]
+ok: [Vm3]
 
-TASK [service] *********************************************************************************************************
-changed: [Vm3]
-changed: [Vm2]
+TASK [Pull Docker image] *********************************************************************************************************************
+ok: [Vm3]
+ok: [Vm2]
 
-PLAY RECAP *************************************************************************************************************
-Vm2                        : ok=5    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
-Vm3                        : ok=5    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+TASK [Create containers] *********************************************************************************************************************
+changed: [Vm3] => (item=1)
+changed: [Vm2] => (item=1)
+
+PLAY RECAP ***********************************************************************************************************************************
+Vm2                        : ok=9    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+Vm3                        : ok=9    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
