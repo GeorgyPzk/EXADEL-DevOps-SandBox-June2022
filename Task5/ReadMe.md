@@ -37,6 +37,8 @@ To connect ansible from Vm1 to Vm2 and Vm3:
 
 ## Extra
 
+Run container with LEMP stak.
+At first create image with LEMP stak and push it to DokerHub. Then you need only to run this image after install docker.
 On vm1:
 
 `sudo docker pull mysql`
