@@ -1,0 +1,27 @@
+azureuser@Vm1:~/ansible$ ansible-playbook playbook.yml
+
+PLAY [Install docker] **************************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************
+ok: [Vm2]
+ok: [Vm3]
+
+TASK [ensure repository key is installed] ******************************************************************************
+changed: [Vm3]
+changed: [Vm2]
+
+TASK [ensure docker registry is available] *****************************************************************************
+changed: [Vm2]
+changed: [Vm3]
+
+TASK [ensure docker and dependencies are installed] ********************************************************************
+changed: [Vm3]
+changed: [Vm2]
+
+TASK [service] *********************************************************************************************************
+changed: [Vm3]
+changed: [Vm2]
+
+PLAY RECAP *************************************************************************************************************
+Vm2                        : ok=5    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+Vm3                        : ok=5    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0

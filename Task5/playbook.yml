@@ -20,3 +20,16 @@
     #  lineinfile: "dest=/etc/default/docker regexp=^DOCKER_OPTS line=DOCKER_OPTS='--insecure-registry 10.11.0.0/16'"
 
     - service: name=docker state=restarted
+
+    - name: deploy my LEMP docker container
+      docker_container:
+        image: georgypzk/lemp-stak-task5:v1
+        name: lemp
+        state: started
+        auto_remove: true
+        ports:
+          - "8080:80"
+
+    
+
+    

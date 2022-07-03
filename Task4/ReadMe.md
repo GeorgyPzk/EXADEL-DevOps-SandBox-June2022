@@ -8,6 +8,8 @@ __Download__ image:
 
 `docker pull <imagename>`
 
+`docker pull georgypzk/lemp-stak-task5:v1`
+
 __Show all__ images in VM:
 
 `docker images`
@@ -22,7 +24,9 @@ Inside (ctrl+c to cancel):
  `docker run -it -p 80:8080 <imagename>` 
 
 Background:
- `docker run -d -p 80:8080 <imagename>` 
+ `docker run -d -p 80:8080 <imagename>` or
+
+ `docker run -t -d  ubuntu:latest`
 
 __Stop__ container:
 
@@ -36,14 +40,28 @@ __Enter__ to container:
 
 `docker exec -it <imagename> /bin/bash`
 
-__Create__ image:
+__Create__ image from Dockerfile:
 
 `docker build -t mycontainer:v1 .`
+
+__Create__ image from container:
+
+`docker commit <idcontainer> <newname>:<version>`
 
 __Docker compose__:
 
 Background:
 `docker-compose up --build -d`
+
+__Push__ image to __Docker hub__:
+
+`docker login`
+
+`docker tag <imageID> georgypzk/<imageName>:<version>`
+
+`docker push georgypzk/<imageName>`
+
+
 
 imagename == imageid 
 

@@ -34,3 +34,41 @@ To connect ansible from Vm1 to Vm2 and Vm3:
 2. `ansible-playbook playbook.yml`
 3. [To write playbook for install docker use this](https://tutorials.releaseworksacademy.com/learn/installing-docker-on-ubuntu-with-ansible)
 4. Result check in `OutPutDocker.txt`
+
+## Extra
+
+On vm1:
+
+`sudo docker pull mysql`
+
+`sudo docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=<secret> -d mysql`
+
+`sudo docker exec -it 06e14ec275e3 /bin/bash`
+
+In container:
+
+`apt-get update`
+
+`apt-get install systemd`
+
+`cat /etc/os-release`
+
+`mysql --version` to chek
+
+`mysql_secure_installation` enter password and 
+
+`apt-get install nginx`
+
+`apt-get install php`
+
+Check all insallation in `/Task5/images/LAMP container.png`
+
+on vm1:
+
+`sudo docker commit 06e14ec275e3 lemp_image:v1`
+
+`docker login`
+
+`docker tag <imageID> georgypzk/lemp-stak-task5:v1`
+
+`docker push georgypzk/lemp-stak-task5:v1`
