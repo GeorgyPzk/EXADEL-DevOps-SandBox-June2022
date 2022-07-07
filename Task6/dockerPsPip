@@ -1,0 +1,14 @@
+pipeline {
+    agent {
+        label 'Vm1'
+        }
+        
+    
+    stages {
+        stage('Build') {
+            steps {
+                sh 'sudo docker ps -a'
+            }
+        }
+    }
+}

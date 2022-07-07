@@ -1,0 +1,20 @@
+pipeline {
+    agent {
+        docker{
+            label 'Vm1'
+            image 'jenkins/ssh-agent:latest'
+            args '--user 0'
+            
+        }
+        
+    }
+    
+    stages {
+        stage('Build') {
+            steps {
+                sh 'date'
+            }
+        }
+    }
+}
+
