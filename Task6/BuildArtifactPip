@@ -1,0 +1,23 @@
+pipeline {
+  agent {label 'Vm1'}
+  options {
+    buildDiscarder(logRotator(numToKeepStr: '5'))
+    durabilityHint('PERFORMANCE_OPTIMIZED')
+    disableConcurrentBuilds()
+  }
+  stages{
+    stage('build') {
+      steps {
+        sh '''#!/bin/bash
+        wget https://raw.githubusercontent.com/GeorgyPzk/EXADEL-DevOps-SandBox-June2022/main/Task4/Dockerfile
+        cat Dockerfile
+         '''
+      }
+    }
+    stage('archive') {
+      steps {
+        archiveArtifacts(artifacts: 'Dockerfile', followSymlinks: false)
+      }
+    }
+  }
+}
