@@ -91,7 +91,10 @@ docker {
 [Doc](https://www.jenkins.io/doc/pipeline)
 
 [Build artifacts](https://www.youtube.com/watch?v=u6LF-T-daS4&ab_channel=CloudBeesTV)
+
 [Build agents](https://www.youtube.com/watch?v=ymI02j-hqpU&ab_channel=CloudBeesTV)
+
+[Use credentional(secret)](https://www.jenkins.io/doc/book/using/using-credentials/)
 
 
 
