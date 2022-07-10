@@ -115,3 +115,6 @@ https://wiki.jenkins-ci.org/display/JENKINS/Distributed+builds
 
 
 https://www.youtube.com/watch?v=ymI02j-hqpU&ab_channel=CloudBeesTV
+
+
+ sudo docker run -t -d -p 23:22 jenkins/ssh-agent ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC96QvI/bkfahoUMsnw3ibpOgj/PmS0H7UB4sqvPCJtA6IXSMbK+HCSZaARzMdSnAY+kDO2J1CGLnuBKSTUfQYHe0OFgb3b1KAuJuHq2jyfsqP6UgDy0ClTXL8acFmDoxjl4WbN3J9bPSyvByneuNAqiEzcZ5RXDxHEUaw1KSODbUC1RjYstrVPXWwGxhCR9DLwKMbE5pcw170rFjv4sSSk8K/y6BtvkvAzqH042p2ouwAhMOuuhS/Qyu9ZWLsadfJcY61GzS4joq1tR3fReXM/MYBcKwY9jFehLqksZKmatJgSj6OVIJLycGTA0jcEY6qCZiNZNmPZ6QE6VY7YaGtcyuIhb1D+6SxzPp9M4jvx5RwuNQ7KkhgC85hu45gtlOcj+Sp9PRx64zcBF4NTuy+xInvSIUWLU2n/qIey4itCZMA1LG52wecqJjK5VL4MuxPgUzHBe16H6zaEpX+ZV0HVd4k8gOaQWrVNw/Umpj/qq6XyCkiVMAIF0K7LOSclqa0= azureuser@Vm1

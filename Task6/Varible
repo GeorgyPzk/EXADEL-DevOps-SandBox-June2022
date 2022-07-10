@@ -1,0 +1,26 @@
+pipeline {
+    environment {
+        PAS_CRED = credentials('PASSWORD')
+    }
+    agent {
+        docker{
+            label 'Vm1'
+            image 'jenkins/ssh-agent:latest'
+            args '--user 0'
+        }
+        
+    }
+    //agent {label 'Vm1'}
+    stages {
+        stage('var') {
+            steps {
+                  sh '''#!/bin/bash
+                   echo $PAS_CRED
+                   echo "hello!"
+                  '''
+                  echo 'PASSWORD =$PAS_CRED'
+                  echo "PASSWORD =$PAS_CRED"
+            }
+        }
+    }
+}

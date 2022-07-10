@@ -1,6 +1,6 @@
 # Docker command:
 
-__Find__ some images:
+__Search__ some images:
 
 `docker search <imagename>`
 
@@ -21,7 +21,7 @@ __Show active__ containers:
 __Run__ image:
 
 Inside (ctrl+c to cancel):
- `docker run -it -p 80:8080 <imagename>` 
+ `docker run -it -p 80:8080 <imagename>`
 
 Background:
  `docker run -d -p 80:8080 <imagename>` or
@@ -40,11 +40,15 @@ __Enter__ to container:
 
 `docker exec -it <imagename> /bin/bash`
 
+As __root__:
+
+`docker exec -u 0 -it mycontainer bash`
+
 __Create__ image from Dockerfile:
 
 `docker build -t mycontainer:v1 .`
 
-__Create__ image from container:
+__Create__ image from __container__:
 
 `docker commit <idcontainer> <newname>:<version>`
 
@@ -61,6 +65,13 @@ __Push__ image to __Docker hub__:
 
 `docker push georgypzk/<imageName>`
 
+__SSH connection from container__:
+
+`apt update && apt install  openssh-server sudo -y`
+
+`chmod 600 Vm1_key.pem`
+
+`ssh -i "Vm1_key.pem" -l azureuser 52.157.178.5 "docker ps -a"`
 
 
 imagename == imageid 
