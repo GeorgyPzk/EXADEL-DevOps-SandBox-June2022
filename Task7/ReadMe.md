@@ -120,5 +120,86 @@ Open port 10050 to unlock active check . Open port 10051 to unlock active check.
 [install agent](https://tecadmin.net/how-to-install-zabbix-agent-on-ubuntu-20-04/)
 [download](https://www.zabbix.com/ru/download_agents?version=5.0+LTS&release=5.0.17&os=Linux&os_version=4.12&hardware=ppc64le&encryption=No+encryption&packaging=Archive&show_legacy=0)
 
+[simple ping](https://woshub-com.translate.goog/zabbix-simple-icmp-ping-checks/?_x_tr_sch=http&_x_tr_sl=en&_x_tr_tl=ru&_x_tr_hl=ru&_x_tr_pto=wapp)
+[simple ping part 2](https://winitpro.ru/index.php/2020/05/07/zabbix-proverka-dostupnosti-icmp-ping/)
 
 
+# Install ELK
+
+[Guide to install ELK](https://www.digitalocean.com/community/tutorials/how-to-install-elasticsearch-logstash-and-kibana-elastic-stack-on-ubuntu-20-04-ru)
+
+## Install java
+
+[Guide to install Default JRE/JDK(JAVA)](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-20-04#installing-the-default-jrejdk)
+
+`sudo apt update`
+
+`java -version`
+
+`sudo apt install default-jre -y`
+
+`sudo apt install default-jdk -y`
+
+`java -version`
+
+## Install nginx
+
+[Offical doc](https://www.elastic.co/guide/en/elastic-stack/current/installing-elastic-stack.html)
+
+[Guide to install NGINX 5 step include](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-20-04)
+
+`sudo apt update`
+
+`sudo apt install nginx -y`
+
+## Install Elasticsearch
+
+Open port 9200 to Elasticsearch
+
+`curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -`
+
+`echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list`
+
+`sudo apt update`
+
+`sudo apt install elasticsearch`
+
+`sudo nano /etc/elasticsearch/elasticsearch.yml`
+
+Incomment and write: `network.host: localhost`
+
+`sudo systemctl start elasticsearch`
+
+`sudo systemctl enable elasticsearch`
+
+`curl -X GET "localhost:9200"`
+
+## Install Kibana
+
+`sudo apt install kibana`
+
+`sudo systemctl enable kibana`
+
+`sudo systemctl start kibana`
+
+User for Kibana: kibanaadmin
+
+`echo "kibanaadmin:`openssl passwd -apr1`" | sudo tee -a /etc/nginx/htpasswd.users`
+
+!Write user and password.
+
+Create file `your_domain` and open 5601 port. Copy file from repo and pase to nano.
+
+`sudo nano /etc/nginx/sites-available/your_domain`
+
+`sudo ln -s /etc/nginx/sites-available/your_domain /etc/nginx/sites-enabled/your_domain`
+
+`sudo nginx -t`
+
+`sudo systemctl reload nginx`
+
+[Configurete to finish work](https://phoenixnap.com/kb/kibana-nginx-proxy)
+
+[Result Elastic](http://104.46.41.117:5601)
+
+[Rusult Kibana](http://104.46.41.117:5601/status)
