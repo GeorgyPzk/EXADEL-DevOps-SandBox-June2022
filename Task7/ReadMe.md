@@ -188,7 +188,7 @@ User for Kibana: kibanaadmin
 
 !Write user and password.
 
-Create file `your_domain` and open 5601 port. Copy file from repo and pase to nano.
+Create file `your_domain` and open 5601 port. Open port 5044 for Logstash. Copy file from repo and pase to nano.
 
 `sudo nano /etc/nginx/sites-available/your_domain`
 
@@ -203,3 +203,66 @@ Create file `your_domain` and open 5601 port. Copy file from repo and pase to na
 [Result Elastic](http://104.46.41.117:5601)
 
 [Rusult Kibana](http://104.46.41.117:5601/status)
+
+## Install Filebeat
+
+[Doc Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/configuring-howto-filebeat.html)
+
+### Restart Filebeat
+
+`sudo systemctl start filebeat`
+
+`sudo systemctl stop filebeat`
+
+`sudo systemctl enable filebeat`
+
+`sudo systemctl disable filebeat`
+
+-----------------------------------------------
+
+`sudo apt install filebeat`
+
+`sudo nano /etc/filebeat/filebeat.yml`
+
+In file write sime like a `filebeat.yml` in this dir.
+
+`sudo filebeat modules enable system`
+
+`sudo filebeat modules list`
+
+`sudo filebeat setup --pipelines --modules system`
+
+`sudo filebeat setup --index-management -E output.logstash.enabled=false -E 'output.elasticsearch.hosts=["localhost:9200"]'`
+
+### Problem Filebeat: "No results match your search criteria"
+
+`sudo filebeat test output`
+
+__Output:__ `dial up... ERROR dial tcp 127.0.0.1:5044: connect: connection refused`
+
+__Check ststus__: `systemctl status filebeat.service`
+
+__Check output__:`sudo filebeat test output`
+
+__Chech IP__: `ip -brief address show`
+
+
+## Install Metricbeat
+
+`sudo apt install filebeat Metricbeat`
+
+[Metric f](https://www.elastic.co/guide/en/beats/metricbeat/current/configuration-metricbeat.html)
+
+If you want to see some metrics you should to rewrite `metricbeat.yml`(path:`/etc/metricbeat/metricbeat.yml`) and `<modulename>.yml`(path:`/etc/metricbeat/modules.d/<modulename>.yml`)
+
+`sudo chown root metricbeat.yml`
+
+Enadle modul to write:
+
+`metricbeat modules enable nginx`
+
+`sudo chown root modules.d/nginx.yml `
+
+Start write metric: `sudo metricbeat -e`
+
+[with docker](https://coralogix.com/docs/filebeat/)
