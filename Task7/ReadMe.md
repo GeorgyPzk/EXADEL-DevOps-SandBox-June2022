@@ -218,6 +218,8 @@ Create file `your_domain` and open 5601 port. Open port 5044 for Logstash. Copy 
 
 `sudo systemctl disable filebeat`
 
+`sudo systemctl enable --now filebeat.service`
+
 -----------------------------------------------
 
 `sudo apt install filebeat`
@@ -240,7 +242,7 @@ In file write sime like a `filebeat.yml` in this dir.
 
 __Output:__ `dial up... ERROR dial tcp 127.0.0.1:5044: connect: connection refused`
 
-__Check ststus__: `systemctl status filebeat.service`
+__Check ststus__: `systemctl status filebeat.service` `systemctl status metricbeat.service`
 
 __Check output__:`sudo filebeat test output`
 
@@ -264,5 +266,7 @@ Enadle modul to write:
 `sudo chown root modules.d/nginx.yml `
 
 Start write metric: `sudo metricbeat -e`
+
+`sudo metricbeat modules list`
 
 [with docker](https://coralogix.com/docs/filebeat/)
