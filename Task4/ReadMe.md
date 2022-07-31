@@ -32,9 +32,12 @@ __Stop__ container:
 
 `docker rm <imagename>`
 
+`docker container prune` все остановленные контейнеры
+
 __Delite__ image:
 
 `docker rmi <imagename>`
+
 
 __Enter__ to container:
 
