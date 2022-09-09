@@ -28,6 +28,8 @@ Background:
 
  `docker run -t -d  ubuntu:latest`
 
+ `sudo docker run --name ubuntu1 -t -d -p 8081:80 27941809078c`
+
 __Stop__ container:
 
 `docker rm <imagename>`
@@ -38,6 +40,9 @@ __Delite__ image:
 
 `docker rmi <imagename>`
 
+__Restart__ container:
+
+`docker restart my_container`
 
 __Enter__ to container:
 
@@ -47,9 +52,9 @@ As __root__:
 
 `docker exec -u 0 -it mycontainer bash`
 
-__Create__ image from Dockerfile:
+__Create__ image from __Dockerfile__:
 
-`docker build -t mycontainer:v1 .`
+`docker build -t mycontainer:v1 .`  `--no-cache` - without cache
 
 __Create__ image from __container__:
 
@@ -59,6 +64,8 @@ __Docker compose__:
 
 Background:
 `docker-compose up --build -d`
+
+`docker-compose -f ./docker-compose.app.yml up -d --build`
 
 __Push__ image to __Docker hub__:
 
@@ -80,6 +87,11 @@ __SSH connection from container__:
 imagename == imageid 
 
 [Some More](https://habr.com/ru/company/flant/blog/336654/)
+
+# Docker compose
+
+`docker compose -f ./docker-compose.app.yml up -d`
+
 
 
 # Tasks

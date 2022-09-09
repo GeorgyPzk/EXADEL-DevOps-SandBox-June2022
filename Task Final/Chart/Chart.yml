@@ -1,0 +1,16 @@
+apiVersion: v2
+appVersion: 1.2.3
+description: My Helm chart for Kubernetes
+keywords:
+- ruby
+- http
+- gem
+
+name: App-HelmChart
+type: application
+version: 0.1.0
+
+
+
+
+

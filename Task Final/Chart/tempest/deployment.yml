@@ -1,0 +1,41 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-deployment
+  labels:
+    app : {{ .Release.Name }}-k8s-deployment
+
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      project: app1
+
+
+  template:
+    metadata:
+      labels:
+        project: {{ .Release.Name }}   # Service will look for those PODS Labels!!!
+    spec:
+      containers:
+        - name : {{ .Release.Name }}-web
+          image: {{ .Values.container.image }}
+
+          env:
+          - name: ASSENGER_MIN_INSTANCES
+          value: 1
+          - name: PASSENGER_MAX_POOL_SIZE
+          value: 2
+          - name: AWS_ACCESS_KEY_ID
+          value: sharetribe
+          - name: S3_BUCKET_NAME
+          value: 51.120.49.247
+          - name: S3_UPLOAD_BUCKET_NAME
+          value: sharetribe-storage
+          - name: DISABLE_DATABASE_ENVIRONMENT_CHECK
+          value: 1
+
+          ports:
+            - containerPort: 80
+

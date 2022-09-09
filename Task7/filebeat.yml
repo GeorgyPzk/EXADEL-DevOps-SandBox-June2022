@@ -9,6 +9,13 @@ filebeat.inputs:
 - type: container
   paths:
     - /var/lib/docker/containers/3fbc8c3be0e54d4b96f0bb50b71fdec813c37f9c3e34be9183ff31cfb0b6a987/*.log
+  # Set to true to enable config reloading
+  reload.enabled: false
+
+# ======================= Elasticsearch template setting =======================
+
+setup.template.settings:
+  index.number_of_shards: 1
 
 # ============================== Filebeat modules ==============================
 
@@ -29,11 +36,4 @@ setup.kibana:
 output.elasticsearch:
   # Array of hosts to connect to.
   hosts: ["localhost:9200"]
-
-# ================================= Processors =================================
-processors:
-  - add_host_metadata:
-      when.not.contains.tags: forwarded
-  - add_cloud_metadata: ~
-  - add_docker_metadata: ~
-  - add_kubernetes_metadata: ~ 
+ 

@@ -1,0 +1,110 @@
+# Login to Azure account
+az login
+
+
+# Service group
+# Create service group
+az group create --name exadel-tasks --location westus3
+
+
+# Container registry
+# Create container registry
+az acr create --resource-group exadel-tasks --name exadeltasksdockerregistry --sku Basic
+
+# Build image and push
+az acr build --image exadeltasksdockerregistry/app:stable --registry exadeltasksdockerregistry --file Dockerfile .
+
+# Login to Azure Container Registry
+az acr login --name exadeltasksdockerregistry
+
+# Pull image
+docker pull exadeltasksdockerregistry.azurecr.io/exadeltasksdockerregistry/app:stable
+
+
+# AKS
+# Create Azure Kubernetes cluster
+az aks create --resource-group exadel-tasks --name app-cluster --node-count 2 --enable-addons monitoring --generate-ssh-keys --location westus3
+
+
+
+
+
+# Install CLI
+az aks install-cli
+
+# Connect to your cluster
+az aks get-credentials --resource-group exadel-tasks --name app-cluster
+
+# Get all the contexts
+kubectl config get-contexts
+
+# Verify the current context
+kubectl config current-context
+
+# Get the node
+kubectl get nodes
+
+
+# Attach registry
+az aks update -n app-cluster -g exadel-tasks --attach-acr exadeltasksdockerregistry
+
+
+
+
+
+
+
+az aks get-credentials -g exadel-tasks -n app-cluster
+
+
+
+
+
+
+az acr import  -n exadel-tasks --source docker.io/library/nginx:latest --image nginx:v1
+
+
+
+
+
+
+
+# Create service and deployment
+kubectl create -f app-service.yaml -f app-deployment.yaml
+
+// list the deployment
+kubectl get deploy
+
+// list the pods
+kubectl get po
+
+// list the service
+kubectl get svc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Nginx ingress
+
+NAMESPACE=default
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+helm install ingress-nginx ingress-nginx/ingress-nginx \
+  --create-namespace \
+  --namespace $NAMESPACE \
+  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
+
