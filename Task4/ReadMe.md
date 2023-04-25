@@ -20,7 +20,7 @@ __Show active__ containers:
 
 __Run__ image:
 
-Inside (ctrl+c to cancel):
+Inside (ctrl+c then ctrl+d to cancel):
  `docker run -it -p 80:8080 <imagename>`
 
 Background:
@@ -32,11 +32,13 @@ Background:
 
 __Stop__ container:
 
-`docker rm <imagename>`
+`docker stop <imagename>`
 
 `docker container prune` все остановленные контейнеры
 
-__Delite__ image:
+__Delite__ container/image:
+
+`docker rm <imagename>`
 
 `docker rmi <imagename>`
 
